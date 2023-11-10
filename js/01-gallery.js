@@ -1,7 +1,6 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
-import * as basicLightbox from 'basiclightbox'
 
 
 
@@ -10,15 +9,15 @@ const list = document.querySelector(".gallery");
 list.addEventListener('click', handleClick);
 
 function handleClick(event) {
-    if (event.target === event.currentTarget) {
+    if (event.target.nodeName !== "IMG") {
         return;
     }
 
-    const currentImg = event.target.closest(".gallery__item");
+    const currentImg = event.target.dataset.source;
 
     const instance = basicLightbox.create(`
     <div class="modal">
-      <img src="${currentImg.original}">
+      <img src="${currentImg}" >
     </div>
     `)
 
