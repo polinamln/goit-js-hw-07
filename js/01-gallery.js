@@ -16,13 +16,12 @@ function handleClick(event) {
 
     const currentImg = event.target.dataset.source;
 
+
     const instance = basicLightbox.create(`
-    <div class="modal">
-      <img src="${currentImg}" >
-    </div>
+        <img src="${currentImg}" width="800" height="600">
     `)
 
-    instance.show();
+    instance.show()
 }
 
 

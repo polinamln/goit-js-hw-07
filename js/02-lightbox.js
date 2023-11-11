@@ -3,35 +3,6 @@ import { galleryItems } from './gallery-items.js';
 
 const list = document.querySelector(".gallery");
 
-
-
-list.addEventListener('click', handleClick);
-
-function handleClick(event) {
-    event.preventDefault();
-    if (event.target.nodeName !== "IMG") {
-        return;
-    }
-
-    const gallery = new SimpleLightbox('.gallery a', {
-        captionsData: "alt",
-        captionDelay: 250,
-        captionPosition:'bottom'
-    });
-
-    const imgCaption = event.target.dataset.caption;
-    const currentImg = event.target.dataset.source;
-
-    gallery.items = [
-        {
-            src: currentImg,
-            type: 'image',
-            caption: imgCaption,
-        },
-    ];
-}
-
-
 createMarcup(galleryItems);
 
 function createMarcup(items) {
@@ -46,11 +17,8 @@ function createMarcup(items) {
     list.insertAdjacentHTML('beforeend', htmlArr.join(''));
 };
 
-
-
-
-console.log(galleryItems);
-
-
-
-console.log(galleryItems);
+    const gallery = new SimpleLightbox('.gallery a', {
+        captionsData: "alt",
+        captionDelay: 250,
+        captionPosition:'bottom'
+    });
